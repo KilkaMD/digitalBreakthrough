@@ -7,9 +7,14 @@ from scipy.spatial.distance import cosine
 DUMB_MODEL_CONFIG_PATH = 'dumb_model/rubert_sentence_embedder.json'
 
 class DumbModel:
-    def __init__(self, texts):
+    def __init__(self, texts=[], embeddings=[]):
         self.m = build_model(DUMB_MODEL_CONFIG_PATH)
-        self.sent_max_embs, _, _ = self.m(texts)
+        if len(texts) and not len(embeddings):
+            self.sent_max_embs, _, _ = self.m(texts)
+        elif not len(texts) and len(embeddings):
+            self.sent_max_embs = embeddings
+        else:
+            raise RuntimeError('no texts or embeddings were provided')
         
     def embed(self, text):
         sent_max_embs, _, _ = self.m([text])
@@ -17,4 +22,5 @@ class DumbModel:
     
     def rank(self, text, top_n=5):
         emb = self.embed(text)
-        return sorted([(i, cosine(emb, e)) for i, e in enumerate(self.sent_max_embs)], key=lambda e: e[1])[:top_n]
+        top_texts = sorted([(i, cosine(emb, e)) for i, e in enumerate(self.sent_max_embs)], key=lambda e: e[1])[:top_n]
+        return [i for i, _ in top_texts]
