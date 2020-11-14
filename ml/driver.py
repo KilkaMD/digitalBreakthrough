@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import json
+from flask import Flask, request
 import numpy as np
 from dumb_model import DumbModel
+
+
+app = Flask('TylkoJedno')
+
 
 with open('dataset.json', 'r') as file:
     articles = json.load(file)
@@ -18,9 +23,8 @@ else:
     with open('dataset.json', 'w') as file:
         json.dump(articles, file)
 
-while(True):
-    q = input('Введите вопрос\n')
-    index = dm.rank(q, 1)[0]
-    print(index)
-    fit = articles[index]
-    print(f'[{index}] {fit["content"]}')
+
+@app.route('/ask')
+def hello_world():
+    q = request.args.get('question')
+    return articles[dm.rank(q, 1)[0]]['content']
