@@ -4,14 +4,6 @@ import search from "../../icons/search.svg";
 import { InputGroupText, InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 
-const SpeechRecognition =
-    window.SpeechRecognition || window.webkitSpeechRecognition
-const mic = new SpeechRecognition()
-
-mic.continuous = true
-mic.interimResults = true
-mic.lang = 'ru'
-
 const InputMessage = ({message,setMessage, sendMessage, category}) => {
     const onSubmit = e => {
         this.e.message = "";
@@ -27,32 +19,6 @@ const InputMessage = ({message,setMessage, sendMessage, category}) => {
     }, [isListening])
 
     const handleListen = () => {
-        if (isListening) {
-            mic.start()
-            mic.onend = () => {
-                mic.start()
-            }
-        } else {
-            mic.stop()
-            mic.onend = () => {
-            }
-        }
-        mic.onstart = () => {
-        }
-
-        mic.onresult = event => {
-            const transcript = Array.from(event.results)
-                .map(result => result[0])
-                .map(result => result.transcript)
-                .join('')
-            console.log(transcript)
-            setNote(transcript);
-            setMessage(note);
-            setNote(null);
-            mic.onerror = event => {
-                console.log(event.error)
-            }
-        }
     }
 
     return (

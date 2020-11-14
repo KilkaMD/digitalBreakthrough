@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import numpy as np
 from dumb_model import DumbModel
 
@@ -28,6 +28,5 @@ def ask():
     q = request.args.get('question')
     print(type(q))
     print(q)
-    answer = articles[dm.rank(q, 1)[0]]['content']
-    print(answer)
-    return answer
+    answer = articles[dm.rank(q, 1)[0]]
+    return jsonify({'answer': f'Обратитесь к статье "{answer["name"]}"'})

@@ -23,7 +23,6 @@ const Chat = () => {
         event.preventDefault();
         console.log(category);
         if (category) {
-
             const url = "http://localhost:4001";
             const route = `/model?question=${category}`
             fetch(url + route, {
