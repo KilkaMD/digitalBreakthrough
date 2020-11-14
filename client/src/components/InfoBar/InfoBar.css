@@ -1,0 +1,118 @@
+.infoBar {
+    padding: 5% 0;
+    height: 90%;
+    background-color: #9893DA;
+    border-radius: 20px 0px 0px 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.popoverFont {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menuTitle {
+    color: #fff;
+    text-align: center;
+}
+
+.cardItem {
+    height: auto;
+    overflow: hidden;
+}
+
+.taskText {
+    max-height: 50px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.submit_category {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    background-color: #FF5010 !important;
+    color: #fff !important;
+    transition: box-shadow 0.8s;
+}
+
+.submit_category:hover {
+    box-shadow: inset 0px 0px 8px rgba(0,0,0,0.3);
+}
+
+.popupMenu {
+    margin: 10px 0;
+    background-color: #fff !important;
+    color: #070707 !important;
+    overflow: hidden !important;
+    font-size: 0.9rem !important;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
+    border: none !important;
+}
+
+.popupMenu:focus {
+    border-color: #7700FF !important;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+    box-shadow: 0 5px 5px -5px #7700FF !important;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+    box-shadow: 0 5px 5px -5px #7700FF !important;
+}
+
+.card-body {
+    padding: 10px !important;
+    border-radius: 0px !important;
+}
+
+.card-title {
+    margin-bottom: 0px !important;
+}
+
+.posMenu {
+    position: relative;
+}
+
+.modal-card-text {
+    padding-bottom: 0 !important;
+}
+
+.rowFAQ {
+    position: relative;
+    bottom: 0;
+    padding-bottom: 4em;
+}
+
+.posFAQ {
+    text-align: center;
+}
+
+.posFAQ >  .btn-secondary {
+    background-color: #7700FF;
+    border: none;
+}
+
+.posFAQ > .btn-secondary:hover {
+    background-color: #7700FF;
+}
+
+.posFAQ > .btn-secondary:active {
+    background-color: #7700FF;
+}
+
+.posFAQ > .btn-secondary:focus {
+    background-color: #7700FF;
+}
+
+.form-control:focus .submit_category:focus {
+    background: #FF5010 !important;
+    box-shadow: none !important;
+    border-color: #9B441E !important;
+}
+
+.form-control .submit_category {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}

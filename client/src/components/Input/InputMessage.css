@@ -1,0 +1,87 @@
+.input {
+    border: none;
+    border-radius: 0;
+    padding-top: 3px;
+    padding-right: 30px;
+}
+
+.form {
+    position: relative;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.sendButton {
+    color: #7700FF;
+    background: none;
+    display: inline-block;
+    border: none;
+}
+
+button {
+    padding: 0;
+    font-family: normal;
+}
+
+.sendButton:focus {
+    outline: none;
+}
+
+.inputOuter {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+}
+
+.prependAddon {
+    margin-top: 8px;
+    margin-left: 10px;
+    padding-right: 25px;
+    width: 5%;
+}
+
+.appendAddon {
+    line-height: normal;
+}
+
+.input-group-text {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    position: absolute;
+    right: 40px;
+    top: 5px;
+}
+
+.form-control {
+    border-radius: 15px !important;
+    padding-right: 70px !important;
+    z-index: 0 !important;
+}
+
+.input-group {
+    width: 100% !important;
+}
+
+.input-group > .form-control:focus {
+    background: transparent !important;
+    border-color: #7700FF !important;
+    box-shadow: none !important;
+}
+ 
+.innerProbCol {
+    position: relative;
+}
+
+.fa-microphone {
+    color: #7700FF;
+}
+
+.micro {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    padding: 0 !important;
+}

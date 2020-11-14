@@ -1,0 +1,11 @@
+.outerContainer {
+    height: 100vh;
+    background-color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.containerInner {
+    height: 75%;
+    font-family: 'Montserrat', sans-serif;
+}
+

@@ -1,0 +1,110 @@
+.messageBox {
+    color: white;
+    display: inline-block;
+    max-width: 85%;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .5);
+}
+
+.messageText {
+    width: 100%;
+    letter-spacing: 0;
+    float: left;
+    font-size: 0.9em;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.messageText img {
+    vertical-align: middle;
+}
+
+.messageContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2%;
+    margin-top: 18px;
+    position: relative;
+}
+
+.sentTextBot {
+    position: absolute;
+    left: -40px;
+    top:-8px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.sentTextUser{
+    position: absolute;
+    right: -40px;
+    top:-8px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.justifyStart {
+    justify-content: flex-start;
+    margin-left: 45px !important;
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+    margin-right: 45px !important;
+}
+
+.colorWhite {
+    color: white;
+}
+
+.colorDark {
+    color: #353535;
+    padding-left: 20px;
+}
+
+.backgroundWhite {
+    background: #fff;
+    border-radius: 0px 18px 18px 18px;
+    padding: 10px 15px 0 0;
+}
+
+.backgroundLight {
+    background: #7700FF;
+    border-radius: 18px 0px 18px 18px;
+    padding: 10px 15px 0 15px;
+}
+
+.avaPaddingBot {
+    padding-left: 10px;
+    padding-top: 6px;
+}
+
+.avaPaddingUser {
+    padding-left: 8px;
+    padding-top: 8px;
+}
+
+.submit_category {
+    border: 2px #343944 solid;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    width: 100%;
+ }
+
+.MuiInput-underline:after{
+    border-bottom: none !important;
+}
+
+.wrapText {
+    overflow: hidden;
+}
+
+.time {
+    position: absolute;
+    font-size: 12px;
+    top:-15px;
+}
