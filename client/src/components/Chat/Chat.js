@@ -25,7 +25,7 @@ const Chat = () => {
         if (category) {
 
             const url = "http://localhost:4001";
-            const route = `/regularBot/question?question=${category}`
+            const route = `/model?question=${category}`
             fetch(url + route, {
                 mode: 'cors',
                 headers: {
@@ -44,7 +44,7 @@ const Chat = () => {
 
         else if (message) {
             const url = "http://localhost:4001";
-            const route = `/regularBot?question=${message}`
+            const route = `/model?question=${message}`
             fetch(url + route, {
                 mode: 'cors',
                 headers: {

@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     res.sendFile('index.html',options);
 });
 
-app.get('/model', (req, res) => {
+app.get('/ask', (req, res) => {
     console.log('it is working')
     res.redirect(modelUrl);
 })
