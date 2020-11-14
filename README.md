@@ -1,5 +1,9 @@
 # Tylko jedno w głowie mam
 
-najlepszego bota pięć gram
+## Сборка и запуск
 
-<img src="https://i.kym-cdn.com/photos/images/original/001/930/083/2a4.gif" />
+```
+docker-compose up
+```
+
+На данный момент проект состоит из двух сервисов: на одном крутится модель, на другом работает веб-сервер. Команда выше поднимает оба сервера в изолированном окружении.
