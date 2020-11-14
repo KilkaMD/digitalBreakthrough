@@ -10,7 +10,6 @@ import StepContent from "@material-ui/core/StepContent";
 import Typography from "@material-ui/core/Typography";
 import question from "../../icons/question.svg";
 
-
 const PopoverContent = ({catIt, setCategory, setMessage}) => {
     const onSubmit = e => {
         e.preventDefault();
@@ -75,8 +74,9 @@ function getStepContent(step) {
 }
 
 
-const InfoBar = ({categories, setCategory, setMessage}) => {
+const InfoBar = ({setCategory, setMessage}) => {
 
+    const categories = ["1","2","3","1","2","3","1","2"]
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const [allGood, setAllGood] = useState(false);
@@ -127,7 +127,7 @@ const InfoBar = ({categories, setCategory, setMessage}) => {
                     <div className="col-12">
                         <div className="container">
                             <h5 className="menuTitle">Меню выбора</h5>
-                            <div className="row  posMenu">
+                            <div className="row posMenu">
                                 <div className="col-12 overflow-hidden">
                                     {category_list}
                                 </div>

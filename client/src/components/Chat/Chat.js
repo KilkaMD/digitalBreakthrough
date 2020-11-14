@@ -3,6 +3,7 @@ import InputMessage from '../Input/InputMessage';
 import Messages from '../Messages/Messages';
 import './Chat.css';
 import InfoBar from "../InfoBar/InfoBar";
+import {FadeTransform} from  'react-animation-components';
 
 const Chat = () => {
     const name = 'user';
@@ -77,15 +78,20 @@ const Chat = () => {
                     <InputMessage message={message} setMessage={setMessage} sendMessage={sendMessage} category={category}/>
                 </div>
             </div>
-            {(chatActive) ?
-            <div className="row containerInner mt-3">
-                <div className="col-4 pr-0">
-                    <InfoBar categories={categories} setCategory={setCategory} setMessage={setMessage}/>
-                </div>
-                <div className="col-8 pl-0">
-                    <Messages messages={messages} name={name} date={date}/>
-                </div>
-            </div> : null}
+                {(chatActive) ?
+                    <FadeTransform in
+                                   transformProps={{
+                                       exitTransform: 'scale(0.5) translateY(-50%)'
+                                   }}>
+                        <div className="row containerInner mt-3">
+                            <div className="col-4 pr-0">
+                                <InfoBar categories={categories} setCategory={setCategory} setMessage={setMessage}/>
+                            </div>
+                            <div className="col-8 pl-0">
+                                <Messages messages={messages} name={name} date={date}/>
+                            </div>
+                        </div>
+                    </FadeTransform>: null}
         </div>
     )
 };

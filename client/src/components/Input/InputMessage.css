@@ -55,7 +55,7 @@ button {
     top: 5px;
 }
 
-.form-control {
+.input-group > .form-control {
     border-radius: 15px !important;
     padding-right: 70px !important;
     z-index: 0 !important;
