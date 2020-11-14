@@ -24,6 +24,10 @@ else:
         json.dump(articles, file)
 
 @app.route('/ask')
-def hello_world():
+def ask():
     q = request.args.get('question')
-    return articles[dm.rank(q, 1)[0]]['content']
+    print(type(q))
+    print(q)
+    answer = articles[dm.rank(q, 1)[0]]['content']
+    print(answer)
+    return answer

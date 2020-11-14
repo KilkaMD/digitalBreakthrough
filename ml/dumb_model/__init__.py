@@ -8,7 +8,7 @@ DUMB_MODEL_CONFIG_PATH = 'ml/dumb_model/rubert_sentence_embedder.json'
 
 class DumbModel:
     def __init__(self, texts=[], embeddings=[]):
-        self.m = build_model(DUMB_MODEL_CONFIG_PATH, download=True)
+        self.m = build_model(DUMB_MODEL_CONFIG_PATH)
         if len(texts) and not len(embeddings):
             self.sent_max_embs, _, _ = self.m(texts)
         elif not len(texts) and len(embeddings):    
