@@ -9,7 +9,7 @@ from dumb_model import DumbModel
 app = Flask('TylkoJedno')
 
 
-with open('dataset.json', 'r') as file:
+with open('ml/dataset.json', 'r') as file:
     articles = json.load(file)
 
 if 'embedding' in articles[0].keys():
@@ -20,9 +20,8 @@ else:
     dm = DumbModel(texts=texts)
     for i, a in enumerate(articles):
         a['embedding'] = dm.sent_max_embs[i].tolist()
-    with open('dataset.json', 'w') as file:
+    with open('ml/dataset.json', 'w') as file:
         json.dump(articles, file)
-
 
 @app.route('/ask')
 def hello_world():
