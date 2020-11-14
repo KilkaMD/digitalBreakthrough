@@ -4,6 +4,7 @@ import Messages from '../Messages/Messages';
 import './Chat.css';
 import InfoBar from "../InfoBar/InfoBar";
 import {FadeTransform} from  'react-animation-components';
+import { trackPromise } from 'react-promise-tracker';
 
 const Chat = () => {
     const name = 'user';
@@ -26,6 +27,7 @@ const Chat = () => {
         if (category) {
             const url = "http://localhost:4001";
             const route = `/model?question=${category}`
+            trackPromise(
             fetch(url + route, {
                 mode: 'cors',
                 headers: {
@@ -36,7 +38,7 @@ const Chat = () => {
                 .then(({ answer }) => setMessages([...messages, { user: name, text: category }, { user: "bot", text: answer }]))
                 .catch(error => {
                     console.log('get message', error.message)
-                });
+                }));
             setCategories([]);
             setCategory('');
             setMessage('');
@@ -45,6 +47,7 @@ const Chat = () => {
         else if (message) {
             const url = "http://localhost:4001";
             const route = `/model?question=${message}`
+            trackPromise(
             fetch(url + route, {
                 mode: 'cors',
                 headers: {
@@ -63,7 +66,7 @@ const Chat = () => {
                 })
                 .catch(error => {
                     console.log('get message', error.message)
-                });
+                }));
             setMessage('');
         }
     }
@@ -79,10 +82,11 @@ const Chat = () => {
                 </div>
             </div>
                 {(chatActive) ?
-                    <FadeTransform in
+                    <FadeTransform className="containerInner" in
                                    transformProps={{
-                                       exitTransform: 'scale(0.5) translateY(-50%)'
-                                   }}>
+                                       exitTransform: 'scale(0.5) translateY(-50%)',
+                                       height: '75%'
+                                   }} >
                         <div className="row containerInner mt-3">
                             <div className="col-4 pr-0">
                                 <InfoBar categories={categories} setCategory={setCategory} setMessage={setMessage}/>

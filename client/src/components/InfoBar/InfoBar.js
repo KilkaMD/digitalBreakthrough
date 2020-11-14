@@ -74,9 +74,8 @@ function getStepContent(step) {
 }
 
 
-const InfoBar = ({setCategory, setMessage}) => {
+const InfoBar = ({categories, setCategory, setMessage}) => {
 
-    const categories = ["1","2","3","1","2","3","1","2"]
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const [allGood, setAllGood] = useState(false);

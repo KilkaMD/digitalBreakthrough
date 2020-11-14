@@ -3,8 +3,10 @@ import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../../../icons/logo.png';
 import userIcon from '../../../icons/user.svg';
-
+import { usePromiseTracker } from "react-promise-tracker";
+import Loader from 'react-loader-spinner';
 import './Message.css';
+
 const useStyles = makeStyles((theme) => ({
     small: {
         width: theme.spacing(3),
@@ -13,6 +15,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Message = ({message: { user, text }, name, date}) => {
+
+    const LoadingIndicator = props => {
+        const { promiseInProgress } = usePromiseTracker();
+        return (
+            promiseInProgress &&
+            <div className="messageContainer justifyStart">
+                <Loader type="ThreeDots" color="#7700FF" height="25" width="50" />
+                <p className="sentTextBot avaPaddingBot">
+                    <Avatar src={logo} className={classes.small} />
+                </p>
+            </div>
+        );
+    }
 
     let isSentByCurrentUser = false;
 
@@ -71,6 +86,7 @@ const Message = ({message: { user, text }, name, date}) => {
                 </p>
             </div>
             )}
+            <LoadingIndicator/>
         </div>
     );
 }
