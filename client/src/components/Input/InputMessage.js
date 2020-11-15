@@ -4,7 +4,7 @@ import search from "../../icons/search.svg";
 import { InputGroupText, InputGroup, InputGroupAddon, Input} from 'reactstrap';
 
 
-const InputMessage = ({message,setMessage, sendMessage, category}) => {
+const InputMessage = ({message,setMessage, sendMessage, category,messages}) => {
     const onSubmit = e => {
         this.e.message = "";
         e.preventDefault();
@@ -28,26 +28,37 @@ const InputMessage = ({message,setMessage, sendMessage, category}) => {
                         <form className="form" onSubmit={onSubmit}>
                             <InputGroup className="inputOuter">
                                 <InputGroupAddon addonType="prepend" className="prependAddon"><img src={search} width="20px" height="20px"/></InputGroupAddon>
-                                <Input
+                                {messages.length > 4 ? <Input
+                                    type="text"
+                                    className="input"
+                                    placeholder="Обратитесь к оператору"
+                                    value={note ? note : message}
+                                    onChange={(event) => setMessage(event.target.value)}
+                                    onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
+                                    disabled
+                                /> : <Input
                                     type="text"
                                     className="input"
                                     placeholder="Введите сообщение..."
                                     value={note ? note : message}
                                     onChange={(event) => setMessage(event.target.value)}
                                     onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
-                                />
-                                <InputGroupAddon addonType="append" className="appendAddon">
-                                    <InputGroupText className="appendGroupBtn">
-                                        <button type="submit" className="sendButton" onClick={(event) => sendMessage(event)}><i className="fa fa-paper-plane fa-lg"></i></button>
-                                    </InputGroupText>
-                                </InputGroupAddon>
+
+                                />}
+                                {messages.length > 4 ? null
+                                 : <InputGroupAddon addonType="append" className="appendAddon">
+                                        <InputGroupText className="appendGroupBtn">
+                                            <button type="submit" className="sendButton" onClick={(event) => sendMessage(event)}><i className="fa fa-paper-plane fa-lg"></i></button>
+                                        </InputGroupText>
+                                    </InputGroupAddon>}
                             </InputGroup>
                         </form>
+                        {messages.length > 4 ? null :
                         <button className="btn micro" onClick={() => {
                             setIsListening(prevState => !prevState);
                         }}>
                             <i className="fa fa-microphone fa-lg" aria-hidden="true"></i>
-                        </button>
+                        </button> }
                     </div>
                     </div>
     </div>

@@ -78,7 +78,7 @@ const Chat = () => {
             </div>
             <div className="row">
                 <div className="col-12 mt-3">
-                    <InputMessage message={message} setMessage={setMessage} sendMessage={sendMessage} category={category}/>
+                    <InputMessage message={message} setMessage={setMessage} sendMessage={sendMessage} category={category} messages={messages}/>
                 </div>
             </div>
                 {(chatActive) ?
